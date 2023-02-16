@@ -3,6 +3,7 @@ package cn.gsein.terminal;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Path;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +35,23 @@ public abstract class AbstractTerminal implements Closeable, Runnable {
         }
         return command;
     }
+
+    /**
+     * 上传文件
+     *
+     */
+    public boolean uploadFile(Path src, String dest) throws IOException {
+        throw new UnsupportedOperationException("不支持上传文件");
+    }
+
+    /**
+     * 下载文件
+     *
+     */
+    public boolean downloadFile(String src, Path dest) throws IOException {
+        throw new UnsupportedOperationException("不支持下载文件");
+    }
+
 
     @Override
     public void close() throws IOException {

@@ -2,10 +2,12 @@ package cn.gsein.terminal;
 
 import cn.gsein.terminal.local.Local;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         AbstractTerminal terminal = TerminalBuilder.builder()
                 .remote()
                 .host(Local.HOST)
@@ -18,6 +20,9 @@ public class Main {
 
         Thread thread = new Thread(terminal);
         thread.start();
+//        terminal.downloadFile("/root/ReadMe", Paths.get(""));
+//        terminal.uploadFile(Paths.get("README.md"), "/root");
+
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
