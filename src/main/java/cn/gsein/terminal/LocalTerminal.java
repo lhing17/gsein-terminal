@@ -71,8 +71,8 @@ public class LocalTerminal extends AbstractTerminal {
 
     private void transferOutAndErrorStream(Process p) {
         try {
-            p.getInputStream().transferTo(System.out);
-            p.getErrorStream().transferTo(System.out);
+            p.getInputStream().transferTo(out);
+            p.getErrorStream().transferTo(err);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
